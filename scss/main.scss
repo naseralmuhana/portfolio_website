@@ -1,0 +1,335 @@
+@import "abstracts/variables";
+@import "abstracts/functions";
+@import "abstracts/mixins";
+@import "abstracts/utilities";
+@import "abstracts/keyframes";
+@import "components/item_grid";
+
+* {
+  //   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: $main-font;
+  line-height: 1.6;
+  background: #fff;
+}
+
+img {
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: $dark-color;
+}
+h2,
+h3,
+h4 {
+  text-transform: uppercase;
+}
+
+ul {
+  list-style: none;
+}
+
+// Navbar
+#main-nav {
+  display: flex;
+  justify-content: space-between;
+  // align-items: center;
+  padding-top: 1rem;
+
+  ul {
+    display: flex;
+    li {
+      padding: 1rem 1.5rem;
+      a {
+        color: #fff;
+        text-transform: uppercase;
+        padding-bottom: 0.5rem;
+        border-bottom: 3px transparent solid;
+        transition: border-color 0.5s;
+        &:hover {
+          border-bottom-color: $medium-color;
+        }
+        &.current {
+          border-bottom-color: $main-color;
+        }
+      }
+    }
+  }
+}
+
+// Header
+#header {
+  // header-home
+  &-home {
+    background: $dark-color;
+    color: set_text_color($dark-color);
+    background: $bg-image no-repeat center right/cover;
+    height: 100vh;
+
+    #header-content {
+      padding-top: 20%;
+      h1 {
+        font-size: 4rem;
+        line-height: 1.2;
+        transform: translatey(-1200px);
+        animation: heading 0.8s ease-in-out 0.2s forwards;
+      }
+      p {
+        transform: translatex(-1800px);
+        animation: paragraph 0.8s ease-in-out 0.8s forwards;
+      }
+    }
+  }
+  // header-inner
+  &-inner {
+    border-bottom: 3px solid $main-color;
+    height: 5.5rem;
+    background: $bg-image no-repeat 20% 30% / cover;
+  }
+}
+
+// Footer
+#footer {
+  &-main {
+    background: $dark-color;
+    color: set_text_color($dark-color);
+    height: 5rem;
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 100%;
+      .social {
+        .footer-icon {
+          border: 2px solid set_text_color($dark-color);
+          border-radius: 50%;
+          height: 20px;
+          width: 20px;
+          line-height: 20px;
+          text-align: center;
+          padding: 0.5rem;
+          margin-right: 1rem;
+          &:hover {
+            background: $main-color;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Home
+#home {
+  // section A
+  &-a {
+    .specials {
+      margin-top: 3rem;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      .fas {
+        color: $main-color;
+        padding-bottom: 0.4rem;
+      }
+    }
+  }
+  // section B
+  &-b {
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      div {
+        padding: 3rem 0;
+        &:nth-child(2n + 1) {
+          background: $light-color;
+        }
+        &:nth-child(2n) {
+          background: $medium-color;
+        }
+        li {
+          line-height: 2;
+        }
+      }
+      &-title {
+        font-size: 1.5rem;
+      }
+      &-number {
+        font-size: 2rem;
+        font-weight: bold;
+      }
+    }
+  }
+  // section C
+  &-c {
+    .process {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      &-icon {
+        background: $dark-color;
+        color: set_text_color($dark-color);
+        padding: 2rem;
+        width: 70px;
+        height: 70px;
+        line-height: 70px;
+        border-radius: 50%;
+        position: relative;
+        transition: all 1s;
+      }
+      &-step {
+        font-size: 1.75rem;
+        position: absolute;
+        top: 0;
+        right: 0;
+        background: $main-color;
+        color: set_text_color($dark-color);
+        border-radius: 50%;
+        padding: 1rem;
+        line-height: 15px;
+        height: 15px;
+        width: 15px;
+        transition: all 1s;
+      }
+      &-icon:hover {
+        width: 90px;
+        height: 90px;
+        line-height: 90px;
+        background: $main-color;
+        color: set_text_color($main-color);
+        .process-step {
+          background: $dark-color;
+          color: set_text_color($dark-color);
+        }
+      }
+    }
+  }
+}
+
+// About
+#about {
+  &-a {
+    .about-info {
+      display: grid;
+      gap: 1.2rem;
+      grid-template-areas:
+        "img bio bio"
+        "award-1 award-2 award-3";
+      .bio {
+        &-image {
+          grid-area: img;
+        }
+        &-info {
+          grid-area: bio;
+          border-left: 3px solid $main-color;
+          padding-top: 0.8rem;
+        }
+      }
+      .award {
+        &-1 {
+          grid-area: award-1;
+        }
+        &-2 {
+          grid-area: award-2;
+        }
+        &-3 {
+          grid-area: award-3;
+        }
+      }
+      .fas {
+        color: $main-color;
+        margin: 1rem;
+      }
+    }
+  }
+
+  &-b {
+    .bar {
+      height: 20px;
+      background: $medium-color;
+      border-radius: 5px;
+      overflow: hidden;
+      margin-bottom: 0.6rem;
+    }
+  }
+
+  &-c {
+    .about-logos {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      img {
+        width: 70%;
+      }
+    }
+  }
+
+  &-d {
+    .testimonials {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.5rem;
+
+      p {
+        border: 1px solid $medium-color;
+        border-radius: 5px;
+        padding: 0.5rem;
+      }
+      ul {
+        display: flex;
+        margin-top: 1rem;
+        align-items: center;
+        img {
+          border-radius: 50%;
+          width: 50px;
+          height: 50px;
+          margin-right: 0.5rem;
+        }
+      }
+    }
+  }
+}
+
+// Contact
+#contact {
+  &-a {
+    .text-fields {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.2rem;
+      margin-bottom: 1.2rem;
+      textarea {
+        grid-column: 1 / span 2;
+        height: 100px;
+      }
+    }
+    button[type="submit"] {
+      width: 50%;
+    }
+  }
+
+  &-b {
+    background: $dark-color;
+    color: set_text_color($dark-color);
+    .contact-info {
+      display: grid;
+      text-align: center;
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  &-c {
+    h1 {
+      font-size: 4rem;
+      text-align: center;
+    }
+  }
+}
+
+// Import Media Queries
+@import "abstracts/media";
